@@ -73,9 +73,9 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-900">
       {/* Header */}
-      <header className="bg-black/20 backdrop-blur-md border-b border-purple-500/20">
+      <header className="bg-black/20 backdrop-blur-md border-b border-green-500/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-8">
@@ -85,25 +85,25 @@ const Index = () => {
               <nav className="hidden md:flex space-x-6">
                 <Button
                   variant="ghost"
-                  className="text-white hover:text-purple-300"
+                  className="text-white hover:text-green-300"
                 >
                   Главная
                 </Button>
                 <Button
                   variant="ghost"
-                  className="text-white hover:text-purple-300"
+                  className="text-white hover:text-green-300"
                 >
                   Фильмы
                 </Button>
                 <Button
                   variant="ghost"
-                  className="text-white hover:text-purple-300"
+                  className="text-white hover:text-green-300"
                 >
                   Сериалы
                 </Button>
                 <Button
                   variant="ghost"
-                  className="text-white hover:text-purple-300"
+                  className="text-white hover:text-green-300"
                 >
                   Избранное
                 </Button>
@@ -121,7 +121,7 @@ const Index = () => {
                   placeholder="Поиск фильмов и сериалов..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/10 border-purple-500/30 text-white placeholder-gray-400 w-64"
+                  className="pl-10 bg-white/10 border-green-500/30 text-white placeholder-gray-400 w-64"
                 />
               </div>
               <Button
@@ -137,7 +137,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-r from-purple-600 to-pink-600 overflow-hidden">
+      <section className="relative h-96 bg-gradient-to-r from-green-600 to-emerald-600 overflow-hidden">
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="text-white max-w-2xl">
@@ -149,13 +149,13 @@ const Index = () => {
               рекомендации и социальные функции.
             </p>
             <div className="flex space-x-4">
-              <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
+              <Button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
                 <Icon name="Play" className="mr-2" size={20} />
                 Смотреть сейчас
               </Button>
               <Button
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-purple-600 font-semibold px-8 py-3 rounded-full transition-all duration-300"
+                className="border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-3 rounded-full transition-all duration-300"
               >
                 <Icon name="Info" className="mr-2" size={20} />
                 Подробнее
@@ -185,7 +185,7 @@ const Index = () => {
             {trendingMovies.map((movie) => (
               <Card
                 key={movie.id}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 border-purple-500/20 hover:border-purple-400/50 transition-all duration-300 transform hover:scale-105 group"
+                className="bg-gradient-to-br from-slate-800 to-slate-900 border-green-500/20 hover:border-green-400/50 transition-all duration-300 transform hover:scale-105 group"
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
@@ -214,7 +214,7 @@ const Index = () => {
                       </Button>
                     </div>
                     <div className="absolute bottom-4 left-4">
-                      <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+                      <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                         {movie.type}
                       </Badge>
                     </div>
@@ -247,7 +247,7 @@ const Index = () => {
                         <span>•</span>
                         <span>{movie.genre}</span>
                       </div>
-                      <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-full px-6 py-2 transition-all duration-300">
+                      <Button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-full px-6 py-2 transition-all duration-300">
                         <Icon name="Play" className="mr-2" size={16} />
                         Смотреть
                       </Button>
@@ -280,11 +280,11 @@ const Index = () => {
             {recommendations.map((item) => (
               <Card
                 key={item.id}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 border-purple-500/20 hover:border-purple-400/50 transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-br from-slate-800 to-slate-900 border-green-500/20 hover:border-green-400/50 transition-all duration-300 transform hover:scale-105"
               >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+                    <Badge className="bg-gradient-to-r from-teal-500 to-green-500 text-white">
                       {item.type}
                     </Badge>
                     <div className="flex items-center space-x-1">
@@ -322,7 +322,7 @@ const Index = () => {
                         size={20}
                       />
                     </Button>
-                    <Button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold rounded-full px-6 py-2 transition-all duration-300">
+                    <Button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-full px-6 py-2 transition-all duration-300">
                       <Icon name="Play" className="mr-2" size={16} />
                       Смотреть
                     </Button>
@@ -367,7 +367,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-black/40 border-t border-purple-500/20 py-12">
+      <footer className="bg-black/40 border-t border-green-500/20 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
@@ -439,7 +439,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <div className="border-t border-purple-500/20 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-green-500/20 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 CineStream. Все права защищены.</p>
           </div>
         </div>
