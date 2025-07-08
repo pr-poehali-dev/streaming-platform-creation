@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
@@ -15,16 +14,14 @@ const Index = () => {
     );
   };
 
-  const trendingMovies = [
+  const movies = [
     {
       id: 1,
       title: "Космическая Одиссея",
       type: "фильм",
       rating: 8.5,
       year: 2024,
-      genre: "Фантастика",
       image: "/img/07bf638b-eb40-4ef0-8b17-d212c03127a4.jpg",
-      description: "Захватывающее путешествие к далёким звёздам",
     },
     {
       id: 2,
@@ -32,9 +29,7 @@ const Index = () => {
       type: "сериал",
       rating: 9.1,
       year: 2024,
-      genre: "Детектив",
       image: "/img/909d6e0e-3bcf-40c8-9c4b-d7035d5aebc6.jpg",
-      description: "Мистический детектив в неоновом городе",
     },
     {
       id: 3,
@@ -42,213 +37,152 @@ const Index = () => {
       type: "анимация",
       rating: 8.8,
       year: 2024,
-      genre: "Семейный",
       image: "/img/fe3b0fdd-53bf-4ad4-97ac-eb955ae6ed17.jpg",
-      description: "Приключения в мире магии и дружбы",
     },
-  ];
-
-  const recommendations = [
     {
       id: 4,
       title: "Неоновые Сны",
       type: "фильм",
       rating: 8.2,
-      genre: "Триллер",
+      year: 2024,
+      image: "/img/07bf638b-eb40-4ef0-8b17-d212c03127a4.jpg",
     },
     {
       id: 5,
       title: "Цифровая Революция",
       type: "сериал",
       rating: 8.7,
-      genre: "Драма",
+      year: 2024,
+      image: "/img/909d6e0e-3bcf-40c8-9c4b-d7035d5aebc6.jpg",
     },
     {
       id: 6,
       title: "Звёздные Воины",
       type: "фильм",
       rating: 8.9,
-      genre: "Экшен",
+      year: 2024,
+      image: "/img/fe3b0fdd-53bf-4ad4-97ac-eb955ae6ed17.jpg",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-black/20 backdrop-blur-md border-b border-green-500/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="bg-white border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-8">
-              <h1 className="text-2xl font-bold text-white font-['Montserrat']">
-                🎬 CineStream
-              </h1>
-              <nav className="hidden md:flex space-x-6">
-                <Button
-                  variant="ghost"
-                  className="text-white hover:text-green-300"
-                >
-                  Главная
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="text-white hover:text-green-300"
-                >
-                  Фильмы
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="text-white hover:text-green-300"
-                >
-                  Сериалы
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="text-white hover:text-green-300"
-                >
-                  Избранное
-                </Button>
-              </nav>
-            </div>
+            <h1 className="text-xl font-semibold text-gray-900">CineStream</h1>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-6">
+              <nav className="hidden md:flex space-x-6">
+                <button className="text-gray-600 hover:text-gray-900">
+                  Главная
+                </button>
+                <button className="text-gray-600 hover:text-gray-900">
+                  Фильмы
+                </button>
+                <button className="text-gray-600 hover:text-gray-900">
+                  Сериалы
+                </button>
+                <button className="text-gray-600 hover:text-gray-900">
+                  Избранное
+                </button>
+              </nav>
+
               <div className="relative">
                 <Icon
                   name="Search"
                   className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                  size={20}
+                  size={18}
                 />
                 <Input
-                  placeholder="Поиск фильмов и сериалов..."
+                  placeholder="Поиск..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-white/10 border-green-500/30 text-white placeholder-gray-400 w-64"
+                  className="pl-10 w-64 border-gray-300 focus:border-green-500 focus:ring-green-500"
                 />
               </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white hover:text-purple-300"
-              >
-                <Icon name="User" size={20} />
-              </Button>
             </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-r from-green-600 to-emerald-600 overflow-hidden">
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="text-white max-w-2xl">
-            <h2 className="text-5xl font-bold mb-4 font-['Montserrat']">
-              Смотри лучшие фильмы и сериалы
-            </h2>
-            <p className="text-xl mb-8 text-gray-200">
-              Тысячи фильмов, сериалов и аниме в высоком качестве. Персональные
-              рекомендации и социальные функции.
-            </p>
-            <div className="flex space-x-4">
-              <Button className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105">
-                <Icon name="Play" className="mr-2" size={20} />
-                Смотреть сейчас
-              </Button>
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-3 rounded-full transition-all duration-300"
-              >
-                <Icon name="Info" className="mr-2" size={20} />
-                Подробнее
-              </Button>
-            </div>
-          </div>
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Смотри лучшие фильмы и сериалы
+          </h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Тысячи фильмов и сериалов в высоком качестве
+          </p>
+          <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3">
+            <Icon name="Play" className="mr-2" size={20} />
+            Начать просмотр
+          </Button>
         </div>
       </section>
 
-      {/* Trending Section */}
+      {/* Content Section */}
       <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-3xl font-bold text-white font-['Montserrat']">
-              🔥 Трендовые сейчас
-            </h3>
-            <Button
-              variant="ghost"
-              className="text-purple-300 hover:text-white"
-            >
-              Смотреть все
-              <Icon name="ChevronRight" className="ml-1" size={20} />
-            </Button>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {trendingMovies.map((movie) => (
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {movies.map((movie) => (
               <Card
                 key={movie.id}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 border-green-500/20 hover:border-green-400/50 transition-all duration-300 transform hover:scale-105 group"
+                className="border border-gray-200 hover:shadow-lg transition-shadow duration-200 bg-white"
               >
                 <CardContent className="p-0">
-                  <div className="relative overflow-hidden rounded-t-lg">
+                  <div className="relative">
                     <img
                       src={movie.image}
                       alt={movie.title}
-                      className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-64 object-cover rounded-t-lg"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-                    <div className="absolute top-4 right-4">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => toggleFavorite(movie.id)}
-                        className="bg-black/50 hover:bg-black/70 text-white rounded-full"
-                      >
-                        <Icon
-                          name="Heart"
-                          className={
-                            favorites.includes(movie.id)
-                              ? "fill-red-500 text-red-500"
-                              : ""
-                          }
-                          size={20}
-                        />
-                      </Button>
-                    </div>
-                    <div className="absolute bottom-4 left-4">
-                      <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white">
-                        {movie.type}
-                      </Badge>
-                    </div>
+                    <button
+                      onClick={() => toggleFavorite(movie.id)}
+                      className="absolute top-3 right-3 p-2 bg-white/90 hover:bg-white rounded-full shadow-sm"
+                    >
+                      <Icon
+                        name="Heart"
+                        className={
+                          favorites.includes(movie.id)
+                            ? "fill-red-500 text-red-500"
+                            : "text-gray-600"
+                        }
+                        size={18}
+                      />
+                    </button>
                   </div>
 
-                  <div className="p-6">
+                  <div className="p-4">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-xl font-bold text-white font-['Montserrat']">
+                      <h4 className="font-semibold text-gray-900 text-lg">
                         {movie.title}
                       </h4>
                       <div className="flex items-center space-x-1">
                         <Icon
                           name="Star"
-                          className="text-yellow-400 fill-yellow-400"
+                          className="text-yellow-500 fill-yellow-500"
                           size={16}
                         />
-                        <span className="text-yellow-400 font-semibold">
+                        <span className="text-sm text-gray-600">
                           {movie.rating}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-gray-300 text-sm mb-3">
-                      {movie.description}
-                    </p>
-
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2 text-sm text-gray-400">
+                      <div className="flex items-center space-x-2 text-sm text-gray-500">
                         <span>{movie.year}</span>
                         <span>•</span>
-                        <span>{movie.genre}</span>
+                        <span className="capitalize">{movie.type}</span>
                       </div>
-                      <Button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-full px-6 py-2 transition-all duration-300">
-                        <Icon name="Play" className="mr-2" size={16} />
+                      <Button
+                        size="sm"
+                        className="bg-green-600 hover:bg-green-700 text-white"
+                      >
+                        <Icon name="Play" className="mr-1" size={14} />
                         Смотреть
                       </Button>
                     </div>
@@ -260,188 +194,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Recommendations Section */}
-      <section className="py-12 bg-black/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-3xl font-bold text-white font-['Montserrat']">
-              💡 Рекомендации для вас
-            </h3>
-            <Button
-              variant="ghost"
-              className="text-purple-300 hover:text-white"
-            >
-              Обновить
-              <Icon name="RefreshCw" className="ml-1" size={20} />
-            </Button>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {recommendations.map((item) => (
-              <Card
-                key={item.id}
-                className="bg-gradient-to-br from-slate-800 to-slate-900 border-green-500/20 hover:border-green-400/50 transition-all duration-300 transform hover:scale-105"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge className="bg-gradient-to-r from-teal-500 to-green-500 text-white">
-                      {item.type}
-                    </Badge>
-                    <div className="flex items-center space-x-1">
-                      <Icon
-                        name="Star"
-                        className="text-yellow-400 fill-yellow-400"
-                        size={16}
-                      />
-                      <span className="text-yellow-400 font-semibold">
-                        {item.rating}
-                      </span>
-                    </div>
-                  </div>
-
-                  <h4 className="text-xl font-bold text-white mb-2 font-['Montserrat']">
-                    {item.title}
-                  </h4>
-
-                  <p className="text-gray-400 text-sm mb-4">{item.genre}</p>
-
-                  <div className="flex items-center justify-between">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => toggleFavorite(item.id)}
-                      className="text-gray-400 hover:text-red-500"
-                    >
-                      <Icon
-                        name="Heart"
-                        className={
-                          favorites.includes(item.id)
-                            ? "fill-red-500 text-red-500"
-                            : ""
-                        }
-                        size={20}
-                      />
-                    </Button>
-                    <Button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-full px-6 py-2 transition-all duration-300">
-                      <Icon name="Play" className="mr-2" size={16} />
-                      Смотреть
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2 font-['Montserrat']">
-                10K+
-              </div>
-              <div className="text-gray-400">Фильмов</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2 font-['Montserrat']">
-                5K+
-              </div>
-              <div className="text-gray-400">Сериалов</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2 font-['Montserrat']">
-                50K+
-              </div>
-              <div className="text-gray-400">Пользователей</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-white mb-2 font-['Montserrat']">
-                1M+
-              </div>
-              <div className="text-gray-400">Просмотров</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-black/40 border-t border-green-500/20 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h4 className="text-lg font-bold text-white mb-4 font-['Montserrat']">
-                CineStream
-              </h4>
-              <p className="text-gray-400">
-                Лучшая платформа для просмотра фильмов и сериалов
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold text-white mb-4 font-['Montserrat']">
-                Контент
-              </h4>
-              <div className="space-y-2">
-                <div className="text-gray-400 hover:text-white cursor-pointer">
-                  Фильмы
-                </div>
-                <div className="text-gray-400 hover:text-white cursor-pointer">
-                  Сериалы
-                </div>
-                <div className="text-gray-400 hover:text-white cursor-pointer">
-                  Аниме
-                </div>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold text-white mb-4 font-['Montserrat']">
-                Сообщество
-              </h4>
-              <div className="space-y-2">
-                <div className="text-gray-400 hover:text-white cursor-pointer">
-                  Обсуждения
-                </div>
-                <div className="text-gray-400 hover:text-white cursor-pointer">
-                  Рейтинги
-                </div>
-                <div className="text-gray-400 hover:text-white cursor-pointer">
-                  Отзывы
-                </div>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-lg font-bold text-white mb-4 font-['Montserrat']">
-                Следите за нами
-              </h4>
-              <div className="flex space-x-4">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-gray-400 hover:text-white"
-                >
-                  <Icon name="Twitter" size={20} />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-gray-400 hover:text-white"
-                >
-                  <Icon name="Instagram" size={20} />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-gray-400 hover:text-white"
-                >
-                  <Icon name="Youtube" size={20} />
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-green-500/20 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 CineStream. Все права защищены.</p>
-          </div>
+      <footer className="bg-gray-50 border-t border-gray-200 py-8">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-gray-600 text-sm">
+            &copy; 2024 CineStream. Все права защищены.
+          </p>
         </div>
       </footer>
     </div>
